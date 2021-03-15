@@ -1,3 +1,5 @@
+import uniqid from "uniqid";
+
 function Experience(props) {
   const { experiences } = props.state;
   const hideEleClass = {
@@ -6,7 +8,7 @@ function Experience(props) {
 
   const experienceList = experiences.map((experience, index) => {
     return (
-      <div key={new Date().toISOString()}>
+      <div key={uniqid()}>
         <div className="information__inputs">
           <div className="form-control">
             <label htmlFor="institution">Name of Organisation:</label>
@@ -35,13 +37,23 @@ function Experience(props) {
           <div className="form-control">
             <label htmlFor="startDate">From:</label>
             <br />
-            <input type="date" name="startDate" value={experience.startDate} onChange={props.handleChange}/>
+            <input
+              type="date"
+              name="startDate"
+              value={experience.startDate}
+              onChange={props.handleChange}
+            />
           </div>
 
           <div className="form-control">
             <label htmlFor="endDate">To:</label>
             <br />
-            <input type="date" name="endDate" value={experience.endDate} onChange={props.handleChange}/>
+            <input
+              type="date"
+              name="endDate"
+              value={experience.endDate}
+              onChange={props.handleChange}
+            />
           </div>
         </div>
 
@@ -53,12 +65,9 @@ function Experience(props) {
             className="information__actions__delete-btn"
             type="button"
             name="experiences"
+            id={index}
             onClick={props.modifyInfoField}
-            style={
-              index === experiences.length - 1
-                ? hideEleClass
-                : null
-            }
+            style={index === experiences.length - 1 ? hideEleClass : null}
           >
             Delete Experience
           </button>
@@ -66,12 +75,9 @@ function Experience(props) {
             className="information__actions__add-btn"
             type="button"
             name="experiences"
+            id={index}
             onClick={props.modifyInfoField}
-            style= {
-              index !== experiences.length - 1
-              ? hideEleClass
-              : null
-            }
+            style={index !== experiences.length - 1 ? hideEleClass : null}
           >
             Add Experience
           </button>

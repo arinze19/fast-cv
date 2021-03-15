@@ -1,7 +1,15 @@
+import uniqid from "uniqid"
+
+
 function Qualifications(props) {
-  const qualificationsList = props.state.qualifications.map((qualification) => {
+  const { qualifications } = props.state
+  const hideEleClass = {
+    display: "none",
+  };
+
+  const qualificationsList = qualifications.map((qualification, index) => {
     return (
-      <div key={new Date().toISOString()}>
+      <div key={uniqid()}>
         <div className="information__inputs">
           <div className="form-control">
             <label htmlFor="institution">Name of Institution:</label>
@@ -10,6 +18,7 @@ function Qualifications(props) {
               type="text"
               name="institution"
               placeholder="Stanford University"
+              className="qualifications"
               value={qualification.institution}
               onChange={props.handleChange}
             />
@@ -22,6 +31,7 @@ function Qualifications(props) {
               type="text"
               name="certification"
               placeholder="Bsc. Computer Science"
+              className="qualifications"
               value={qualification.certification}
               onChange={props.handleChange}
             />
@@ -33,6 +43,7 @@ function Qualifications(props) {
             <input
               type="date"
               name="startDate"
+              className="qualifications"
               value={qualification.startDate}
               onChange={props.handleChange}
             />
@@ -44,6 +55,7 @@ function Qualifications(props) {
             <input
               type="date"
               name="endDate"
+              className="qualifications"
               value={qualification.endDate}
               onChange={props.handleChange}
             />
@@ -55,9 +67,22 @@ function Qualifications(props) {
             <input type="checkbox" /> I currently study here
           </span>
           <button
+            className="information__actions__delete-btn"
             type="button"
             name="qualifications"
+            id={index}
             onClick={props.modifyInfoField}
+            style={index === qualifications.length - 1 ? hideEleClass : null}
+          >
+            Delete Qualification
+          </button>
+          <button
+            className="information__actions__add-btn"
+            type="button"
+            name="qualifications"
+            id={index}
+            onClick={props.modifyInfoField}
+            style={index !== qualifications.length - 1 ? hideEleClass : null}
           >
             Add Qualification
           </button>

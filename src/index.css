@@ -62,7 +62,7 @@ label {
   margin-left: 15px;
   margin-top: 10px;
   padding: 15px;
-  background-color: #008561;
+  /* background-color: #008561; */
   border: none;
   color: white;
   font-family: 'Questrial', Arial, Helvetica, sans-serif;
@@ -124,7 +124,13 @@ label {
     width: 100%;
   }
 
-  .information {
+  .information button,
+  .main-form__button {
+    width: 95%;
+  }
+
+
+  .main-form {
     width: 90%;
   }
 }

@@ -23,7 +23,7 @@ function PersonalInfo(props) {
           <input
             placeholder="Doe"
             type="text"
-            name="last-name"
+            name="lastName"
             value={props.state.lastName}
             onChange={props.handleChange}
           />

@@ -17,81 +17,119 @@ class App extends Component {
           institution: "",
           certificate: "",
           startDate: "",
-          endDate: ""
-        }
+          endDate: "",
+        },
       ],
       experiences: [
         {
           organization: "",
           position: "",
           startDate: "",
-          endDate: ""
-        }
-      ]
+          endDate: "",
+        },
+      ],
     };
 
-    this.modifyInfoField = this.modifyInfoField.bind(this)
-    this.handleChange    = this.handleChange.bind(this)
+    this.modifyInfoField = this.modifyInfoField.bind(this);
+    this.handleChange    = this.handleChange.bind(this);
   }
 
   modifyInfoField(e) {
-   const { name } = e.target
+    const { name, className, id } = e.target;
 
-    //decide what field in the state to update based on the name of the button clicked
-    const newInfo = (name === 'experience') ? 
-    {
-      organization: "",
-      position: "",
-      startDate: "",
-      endDate: ""      
-    } :
-    {
-      institution: "",
-      certificate: "",
-      startDate: "",
-      endDate: ""
+    if (className.includes("delete")) {
+      this.setState( state => {
+        const newStateArr = [...state[name]]
+        newStateArr.splice(id, 1)
+
+        return {
+          [name]: newStateArr,
+        }
+      });
+    } 
+    
+    else  {
+      //decide what field in the state to update based on the name of the button clicked
+      const newInfo =
+        name === "experience"
+          ? {
+              organization: "",
+              position: "",
+              startDate: "",
+              endDate: "",
+            }
+          : {
+              institution: "",
+              certificate: "",
+              startDate: "",
+              endDate: "",
+            };
+
+      this.setState((state) => {
+        return {
+          [name]: [...state[name], newInfo],
+        };
+      });
     }
-
-
-    this.setState(state => {
-      return {
-        [name]: [...state[name], newInfo]
-      }
-    })
   }
 
   handleChange(e) {
-    const { name, value } = e.target
+    const { name, value, className } = e.target;
+
+
+    if(className) {
+      this.setState(state => {
+        
+        return {
+          [className]: [{
+            [name]: value
+          }]
+        }
+      })
+    }
 
     this.setState({
-      [name]: value
-    })
-
+      [name]: value,
+    });
   }
 
   render() {
     const enabledStyling = {
-      backgroundColor: 'pink'
-    }
-  
+      backgroundColor: "pink",
+    };
+
     const disabledStyling = {
-      backgroundColor: '#ccc',
-      color: 'white',
-    }
-  
-    const inputsAreFilled = true 
-  
+      backgroundColor: "#ccc",
+      color: "white",
+    };
+
+    const inputsAreFilled = true;
+
     return (
       <div>
-        <Header /> 
-        <form className="main-form"> 
-          <PersonalInfo state={this.state} handleChange={this.handleChange}/>
-          <Qualifications state={this.state} modifyInfoField={this.modifyInfoField} handleChange={this.handleChange}/>
-          <Experience state={this.state} modifyInfoField={this.modifyInfoField} handleChange={this.handleChange}/>
-          <button type="submit" className="main-form__button" style={!inputsAreFilled ? enabledStyling : disabledStyling } disabled={true}>Preview CV</button>
+        <Header />
+        <form className="main-form">
+          <PersonalInfo state={this.state} handleChange={this.handleChange} />
+          <Qualifications
+            state={this.state}
+            modifyInfoField={this.modifyInfoField}
+            handleChange={this.handleChange}
+          />
+          <Experience
+            state={this.state}
+            modifyInfoField={this.modifyInfoField}
+            handleChange={this.handleChange}
+          />
+          <button
+            type="submit"
+            className="main-form__button"
+            style={!inputsAreFilled ? enabledStyling : disabledStyling}
+            disabled={true}
+          >
+            Preview CV
+          </button>
         </form>
       </div>
-      
     );
   }
 }
