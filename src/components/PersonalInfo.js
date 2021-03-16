@@ -1,4 +1,23 @@
-function PersonalInfo(props) {
+import { useState } from "react"
+const initialValues = {
+  firstName: "",
+  lastName: "",
+  email: "",
+  phoneNumber: "",
+}
+
+
+function PersonalInfo() {
+  const [ personalInfoValues, setPersonalInfo ] = useState(initialValues)
+
+  function handleInputChange(e) {
+    const { name, value } = e.target;
+    setPersonalInfo({
+      ...personalInfoValues,
+      [name]: value,
+    });
+  }
+
   return (
     <div className="information">
       <h2 className="heading">Personal Information.</h2>
@@ -12,8 +31,8 @@ function PersonalInfo(props) {
             placeholder="John"
             type="text"
             name="firstName"
-            value={props.state.firstName}
-            onChange={props.handleChange}
+            value={personalInfoValues.firstName}
+            onChange={handleInputChange}
           />
         </div>
 
@@ -24,8 +43,8 @@ function PersonalInfo(props) {
             placeholder="Doe"
             type="text"
             name="lastName"
-            value={props.state.lastName}
-            onChange={props.handleChange}
+            value={personalInfoValues.lastName}
+            onChange={handleInputChange}
           />
         </div>
 
@@ -36,8 +55,8 @@ function PersonalInfo(props) {
             placeholder="jondoe@test.com"
             type="text"
             name="email"
-            value={props.state.email}
-            onChange={props.handleChange}
+            value={personalInfoValues.email}
+            onChange={handleInputChange}
           />
         </div>
 
@@ -49,8 +68,8 @@ function PersonalInfo(props) {
             name="phoneNumber"
             pattern="[0-9]{3}-[0-9]{2}-[0-9]{3}"
             placeholder="+1-234-567-890"
-            value={props.state.phoneNumber}
-            onChange={props.handleChange}
+            value={personalInfoValues.phoneNumber}
+            onChange={handleInputChange}
           />
         </div>
       </div>

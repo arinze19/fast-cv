@@ -1,8 +1,28 @@
-import uniqid from "uniqid"
+import uniqid       from "uniqid"
+import { useState } from "react"
+
+const initialValues = {
+  institution: "",
+  certificate: "",
+  startDate: "",
+  endDate: "",
+}
+
+ const qualifications = [initialValues]
 
 
-function Qualifications(props) {
-  const { qualifications } = props.state
+function Qualifications() {
+  const [ qualificationsInfoValues, setQualificationsInfo ] = useState(initialValues)
+
+  function handleInputChange(e) {
+    const { name, value } = e.target;
+
+    setQualificationsInfo({
+      ...qualificationsInfoValues,
+      [name]: value,
+    });
+  }
+
   const hideEleClass = {
     display: "none",
   };
@@ -18,9 +38,8 @@ function Qualifications(props) {
               type="text"
               name="institution"
               placeholder="Stanford University"
-              className="qualifications"
               value={qualification.institution}
-              onChange={props.handleChange}
+              onChange={handleInputChange}
             />
           </div>
 
@@ -31,9 +50,8 @@ function Qualifications(props) {
               type="text"
               name="certification"
               placeholder="Bsc. Computer Science"
-              className="qualifications"
               value={qualification.certification}
-              onChange={props.handleChange}
+              onChange={handleInputChange}
             />
           </div>
 
@@ -43,9 +61,8 @@ function Qualifications(props) {
             <input
               type="date"
               name="startDate"
-              className="qualifications"
               value={qualification.startDate}
-              onChange={props.handleChange}
+              onChange={handleInputChange}
             />
           </div>
 
@@ -55,9 +72,8 @@ function Qualifications(props) {
             <input
               type="date"
               name="endDate"
-              className="qualifications"
               value={qualification.endDate}
-              onChange={props.handleChange}
+              onChange={handleInputChange}
             />
           </div>
         </div>
@@ -71,7 +87,7 @@ function Qualifications(props) {
             type="button"
             name="qualifications"
             id={index}
-            onClick={props.modifyInfoField}
+            // onClick={props.modifyInfoField}
             style={index === qualifications.length - 1 ? hideEleClass : null}
           >
             Delete Qualification
@@ -81,7 +97,7 @@ function Qualifications(props) {
             type="button"
             name="qualifications"
             id={index}
-            onClick={props.modifyInfoField}
+            // onClick={props.modifyInfoField}
             style={index !== qualifications.length - 1 ? hideEleClass : null}
           >
             Add Qualification

@@ -1,36 +1,49 @@
-import uniqid from "uniqid";
+import { useState } from "react"
+const initialValues = {
+  organization: "",
+  position: "",
+  startDate: "",
+  endDate: "",
+}
 
 function Experience(props) {
-  const { experiences } = props.state;
-  const hideEleClass = {
-    display: "none",
-  };
+  // const hideEleClass = {
+  //   display: "none",
+  // };
+  const [ experiencesValues, setExperiences ] = useState(initialValues)
 
-  const experienceList = experiences.map((experience, index) => {
+  function handleInputChange(e) {
+    const { name, value } = e.target;
+    setExperiences({
+      ...experiencesValues,
+      [name]: value,
+    });
+  }
+
     return (
-      <div key={uniqid()}>
+      <div>
         <div className="information__inputs">
           <div className="form-control">
-            <label htmlFor="institution">Name of Organisation:</label>
+            <label htmlFor="organization">Name of Organisation:</label>
             <br />
             <input
               type="text"
-              name="institution"
+              name="organization"
               placeholder="Microsoft"
-              value={experience.organization}
-              onChange={props.handleChange}
+              value={experiencesValues.organization}
+              onChange={handleInputChange}
             />
           </div>
 
           <div className="form-control">
-            <label htmlFor="certification">Position Held:</label>
+            <label htmlFor="position">Position Held:</label>
             <br />
             <input
               type="text"
-              name="certification"
+              name="position"
               placeholder="Software Engineer III"
-              value={experience.position}
-              onChange={props.handleChange}
+              value={experiencesValues.position}
+              onChange={handleInputChange}
             />
           </div>
 
@@ -40,8 +53,8 @@ function Experience(props) {
             <input
               type="date"
               name="startDate"
-              value={experience.startDate}
-              onChange={props.handleChange}
+              value={experiencesValues.startDate}
+              onChange={handleInputChange}
             />
           </div>
 
@@ -51,8 +64,8 @@ function Experience(props) {
             <input
               type="date"
               name="endDate"
-              value={experience.endDate}
-              onChange={props.handleChange}
+              value={experiencesValues.endDate}
+              onChange={handleInputChange}
             />
           </div>
         </div>
@@ -65,9 +78,8 @@ function Experience(props) {
             className="information__actions__delete-btn"
             type="button"
             name="experiences"
-            id={index}
             onClick={props.modifyInfoField}
-            style={index === experiences.length - 1 ? hideEleClass : null}
+            // style={index === experiences.length - 1 ? hideEleClass : null}
           >
             Delete Experience
           </button>
@@ -75,24 +87,33 @@ function Experience(props) {
             className="information__actions__add-btn"
             type="button"
             name="experiences"
-            id={index}
             onClick={props.modifyInfoField}
-            style={index !== experiences.length - 1 ? hideEleClass : null}
+            // style={index !== experiences.length - 1 ? hideEleClass : null}
           >
             Add Experience
           </button>
         </div>
       </div>
     );
-  });
 
-  return (
-    <div className="information">
-      <h2 className="heading">Work Experience.</h2>
-      <hr />
-      {experienceList}
-    </div>
-  );
+  // return (
+  //   <div className="information">
+  //     <h2 className="heading">Work Experience.</h2>
+  //     <hr />
+  //     {experienceList}
+  //   </div>
+  // );
 }
 
 export default Experience;
+
+
+
+    //   experiences: [
+    //     {
+    //       organization: "",
+    //       position: "",
+    //       startDate: "",
+    //       endDate: "",
+    //     },
+    //   ],
