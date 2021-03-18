@@ -1,22 +1,5 @@
-import { useState } from "react"
-const initialValues = {
-  firstName: "",
-  lastName: "",
-  email: "",
-  phoneNumber: "",
-}
 
-
-function PersonalInfo() {
-  const [ personalInfoValues, setPersonalInfo ] = useState(initialValues)
-
-  function handleInputChange(e) {
-    const { name, value } = e.target;
-    setPersonalInfo({
-      ...personalInfoValues,
-      [name]: value,
-    });
-  }
+function PersonalInfo({ info, handleInputChange }) {
 
   return (
     <div className="information">
@@ -31,7 +14,7 @@ function PersonalInfo() {
             placeholder="John"
             type="text"
             name="firstName"
-            value={personalInfoValues.firstName}
+            value={info.firstName}
             onChange={handleInputChange}
           />
         </div>
@@ -43,7 +26,7 @@ function PersonalInfo() {
             placeholder="Doe"
             type="text"
             name="lastName"
-            value={personalInfoValues.lastName}
+            value={info.lastName}
             onChange={handleInputChange}
           />
         </div>
@@ -55,7 +38,7 @@ function PersonalInfo() {
             placeholder="jondoe@test.com"
             type="text"
             name="email"
-            value={personalInfoValues.email}
+            value={info.email}
             onChange={handleInputChange}
           />
         </div>
@@ -68,7 +51,31 @@ function PersonalInfo() {
             name="phoneNumber"
             pattern="[0-9]{3}-[0-9]{2}-[0-9]{3}"
             placeholder="+1-234-567-890"
-            value={personalInfoValues.phoneNumber}
+            value={info.phoneNumber}
+            onChange={handleInputChange}
+          />
+        </div>
+
+        <div className="form-control">
+          <label htmlFor="linkedin">LinkedIn:</label>
+          <br />
+          <input
+            placeholder="https://linkedin.com/in/johndoe"
+            type="text"
+            name="linkedin"
+            value={info.linkedin}
+            onChange={handleInputChange}
+          />
+        </div>
+
+        <div className="form-control">
+          <label htmlFor="website">Website:</label>
+          <br />
+          <input
+            placeholder="https://johndoe.com"
+            type="text"
+            name="website"
+            value={info.website}
             onChange={handleInputChange}
           />
         </div>
