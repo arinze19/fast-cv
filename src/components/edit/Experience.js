@@ -44,7 +44,7 @@ function Experience({ info, handleInputChange, handleButtonClick, list }) {
             <input
               type="text"
               name="orgStartDate"
-              placeholder="DD-MM-YYYY"
+              placeholder="MM YYYY"
               className="experiences"
               value={info.orgStartDate}
               onChange={handleInputChange}
@@ -57,7 +57,7 @@ function Experience({ info, handleInputChange, handleButtonClick, list }) {
             <input
               type="text"
               name="orgEndDate"
-              placeholder="DD-MM-YYYY or Present"
+              placeholder="MM YYYY or Present"
               className="experiences"
               value={info.orgEndDate}
               onChange={handleInputChange}

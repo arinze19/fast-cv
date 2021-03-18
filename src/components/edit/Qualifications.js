@@ -43,7 +43,7 @@ function Qualifications({ info, handleInputChange, handleButtonClick, list }) {
             <input
               type="text"
               name="certStartDate"
-              placeholder="DD-MM-YYYY"
+              placeholder="MM YYYY"
               className="qualifications"
               value={info.certStartDate}
               onChange={handleInputChange}
@@ -56,7 +56,7 @@ function Qualifications({ info, handleInputChange, handleButtonClick, list }) {
             <input
               type="text"
               name="certEndDate"
-              placeholder="DD-MM-YYYY or Present"
+              placeholder="MM YYYY or Present"
               className="qualifications"
               value={info.certEndDate}
               onChange={handleInputChange}

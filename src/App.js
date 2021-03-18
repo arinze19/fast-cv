@@ -24,7 +24,7 @@ const initialState = {
 
 function App() {
   const [info, setInfo]                           = useState({ ...initialState });
-  let [preview, setPreview]                       = useState(false);
+  let   [preview, setPreview]                     = useState(false);
   const [institutionsList, setInstitutionsList]   = useState([]);
   const [organizationsList, setOrganizationsList] = useState([]);
   
@@ -48,6 +48,16 @@ function App() {
       };
 
       setInstitutionsList((prevList) => prevList.concat(selectedInfo));
+      // reset state values 
+      setInfo(prevInfo => {
+        return {
+          ...prevInfo,
+          institution: "",
+          certification: "",
+          certStartDate: "",
+          certEndDate: ""
+        }
+      })
     } else {
       selectedInfo = {
         organization: info.organization,
@@ -57,6 +67,15 @@ function App() {
       };
 
       setOrganizationsList((prevList) => prevList.concat(selectedInfo));
+      setInfo(prevInfo => {
+        return {
+          ...prevInfo,
+          organization: "",
+          position: "",
+          orgStartDate: "",
+          orgEndDate: ""
+        }
+      })
     }
   }
 
