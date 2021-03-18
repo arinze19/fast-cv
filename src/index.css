@@ -118,6 +118,22 @@ label {
   background-color: #008561;
 }
 
+.showcase {
+  margin-left: 15px;
+  border-left: 2px solid #15372c;
+  padding: 10px;
+  background-color: #0085623d;
+}
+
+.showcase:not(:first-child) {
+  border-top: 1px solid white;
+}
+
+.showcase__header {
+  margin-bottom: 5px;
+  margin-top: 5px;
+}
+
 
 @media(max-width: 768px) {
   .information__inputs .form-control {

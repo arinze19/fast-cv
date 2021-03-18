@@ -1,8 +1,14 @@
-function Qualifications({ info, handleInputChange, handleButtonClick }) {
+import ShowCase from "../base/ShowCase";
+
+function Qualifications({ info, handleInputChange, handleButtonClick, list }) {
   return (
     <div className="information">
       <h2 className="heading">Education and Qualifications.</h2>
       <hr />
+      
+      {/* setting up a section props to determine how to render showcase component */}
+      <ShowCase list={list} section="qualifications"/>
+
       <div>
         <div className="information__inputs">
           <div className="form-control">
