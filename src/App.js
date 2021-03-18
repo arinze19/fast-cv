@@ -4,7 +4,7 @@ import Preview        from "./components/pages/Preview"
 import Home           from "./components/pages/Home";
 
 function App() {
-  let [ preview, setPreview ] = useState(true)
+  let [ preview, setPreview ] = useState(false)
 
   function togglePreview() {
     // set the preview to the opposite of what it was 
