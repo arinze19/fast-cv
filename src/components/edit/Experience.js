@@ -1,14 +1,17 @@
 import ShowCase from "../base/ShowCase";
 
 function Experience({ info, handleInputChange, handleButtonClick, list }) {
-    
   return (
     <div className="information">
       <h2 className="heading">Experiences.</h2>
       <hr />
 
       {/* setting up a section props to determine how to render showcase component */}
-      <ShowCase list={list} section="experience"/>
+      <ShowCase
+        list={list}
+        section="experience"
+        handleButtonClick={handleButtonClick}
+      />
 
       <div>
         <div className="information__inputs">

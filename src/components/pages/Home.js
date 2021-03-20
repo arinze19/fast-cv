@@ -1,10 +1,10 @@
-import PersonalInfo from "../edit/PersonalInfo";
+import PersonalInfo   from "../edit/PersonalInfo";
 import Qualifications from "../edit/Qualifications";
-import Experiences from "../edit/Experience";
+import Experiences    from "../edit/Experience";
 
 
-function Home({ handleButtonClick, lists, info, handleInputChange }) {
-  const { organizationsList, institutionsList } = lists
+function Home({ handleButtonClick, lists, info, handleInputChange, togglePreview }) {
+  const { organizationsList, institutionsList, skillsList } = lists
 
   return (
     <div>
@@ -12,6 +12,8 @@ function Home({ handleButtonClick, lists, info, handleInputChange }) {
         <PersonalInfo
           info={info}
           handleInputChange={handleInputChange}
+          handleButtonClick={handleButtonClick}
+          list={skillsList}
         />
         <Qualifications
           list={institutionsList}
@@ -25,7 +27,7 @@ function Home({ handleButtonClick, lists, info, handleInputChange }) {
           handleInputChange={handleInputChange}
           handleButtonClick={handleButtonClick}
         />
-        <button>Preview CV</button>
+        <button className="main-form__button" onClick={togglePreview}>Preview CV</button>
       </form>
     </div>
   );

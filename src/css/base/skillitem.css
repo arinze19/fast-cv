@@ -1,0 +1,10 @@
+.skill-item {
+    padding: 10px;
+    background-color: #0085623d;
+    font-size: 14px;
+}
+
+.skill-item__close {
+    color: #f02f0d;
+}
+

@@ -1,0 +1,33 @@
+.showcase {
+  margin-left: 15px;
+  border-left: 2px solid #15372c;
+  border-bottom: 1px solid white;
+  padding: 10px;
+  background-color: #0085623d;
+  width: 90%;
+  position: relative;
+}
+
+.showcase__close {
+  position: absolute;
+  right: 5px;
+  top: 5px;
+  color: #f02f0d;
+  cursor: pointer;
+}
+
+.showcase__header,
+.showcase__para {
+  margin-bottom: 5px;
+  margin-top: 5px;
+}
+
+@media (max-width: 768px) {
+  .showcase__header {
+    font-size: 18px;
+  }
+
+  .showcase__para {
+    font-size: 14px;
+  }
+}

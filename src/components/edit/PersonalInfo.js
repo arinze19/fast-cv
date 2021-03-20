@@ -1,6 +1,6 @@
+import SkillsList from "../base/SkillsList"
 
-function PersonalInfo({ info, handleInputChange }) {
-
+function PersonalInfo({ info, handleInputChange, handleButtonClick, list }) {
   return (
     <div className="information">
       <h2 className="heading">Personal Information.</h2>
@@ -27,6 +27,18 @@ function PersonalInfo({ info, handleInputChange }) {
             type="text"
             name="lastName"
             value={info.lastName}
+            onChange={handleInputChange}
+          />
+        </div>
+
+        <div className="form-control">
+          <label htmlFor="location">Location:</label>
+          <br />
+          <input
+            placeholder="California, US"
+            type="text"
+            name="location"
+            value={info.location}
             onChange={handleInputChange}
           />
         </div>
@@ -79,6 +91,28 @@ function PersonalInfo({ info, handleInputChange }) {
             onChange={handleInputChange}
           />
         </div>
+
+        <div className="form-control">
+          <label htmlFor="website">Skills:</label>
+          <br />
+          <input
+            placeholder="Vue.JS"
+            type="text"
+            name="skill"
+            value={info.skill}
+            onChange={handleInputChange}
+          />
+          <button
+            className="main-form__button"
+            style={{ marginLeft: 0 }}
+            name="skills"
+            onClick={handleButtonClick}
+          >
+            Add Skill
+          </button>
+        </div>
+
+        <SkillsList list={list} handleButtonClick={handleButtonClick}/>
       </div>
     </div>
   );

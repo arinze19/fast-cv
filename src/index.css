@@ -62,7 +62,6 @@ label {
   margin-left: 15px;
   margin-top: 10px;
   padding: 15px;
-  /* background-color: #008561; */
   border: none;
   color: white;
   font-family: 'Questrial', Arial, Helvetica, sans-serif;
@@ -97,6 +96,7 @@ label {
   width: 70%;
   margin: 0 auto;
   color: #15372c;
+  max-width: 1440px
 }
 
 .main-form__button {
@@ -108,6 +108,9 @@ label {
   margin-top: 30px;
   margin-bottom: 15px;
   border: none;
+  color: white;
+  background-color: #008561;
+  cursor: pointer;
 }
 
 .information__actions__delete-btn {
@@ -117,25 +120,6 @@ label {
 .information__actions__add-btn {
   background-color: #008561;
 }
-
-.showcase {
-  margin-left: 15px;
-  border-left: 2px solid #15372c;
-  padding: 10px;
-  background-color: #0085623d;
-  width: 90%;
-}
-
-.showcase:not(:first-child) {
-  border-top: 1px solid white;
-}
-
-.showcase__header,
-.showcase__para {
-  margin-bottom: 5px;
-  margin-top: 5px;
-}
-
 
 @media(max-width: 768px) {
   .information__inputs .form-control {
@@ -151,13 +135,6 @@ label {
     width: 90%;
   }
 
-  .showcase__header {
-    font-size: 18px;
-  }
-
-  .showcase__para {
-    font-size: 14px;
-  }
 }
 
 

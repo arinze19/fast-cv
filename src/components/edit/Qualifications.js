@@ -5,9 +5,13 @@ function Qualifications({ info, handleInputChange, handleButtonClick, list }) {
     <div className="information">
       <h2 className="heading">Education and Qualifications.</h2>
       <hr />
-      
+
       {/* setting up a section props to determine how to render showcase component */}
-      <ShowCase list={list} section="qualifications"/>
+      <ShowCase
+        list={list}
+        section="qualifications"
+        handleButtonClick={handleButtonClick}
+      />
 
       <div>
         <div className="information__inputs">
