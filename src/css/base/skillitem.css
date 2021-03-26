@@ -1,5 +1,7 @@
 .skill-item {
     padding: 10px;
+    margin-top: 5px;
+    margin-bottom: 5px;
     background-color: #0085623d;
     font-size: 14px;
 }

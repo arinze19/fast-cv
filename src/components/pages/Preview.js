@@ -3,6 +3,7 @@ import "../../css/pages/preview.css";
 
 function Preview({ info, lists }) {
   const { organizationsList, institutionsList, skillsList } = lists;
+
   return (
     <div className="preview-container">
       <div className="preview-container__header">
@@ -34,18 +35,18 @@ function Preview({ info, lists }) {
 
       <div className="preview-container__qualifications-section">
         <h2>Education and Qualifications.</h2>
-        {institutionsList.map((institution) => (
+        {institutionsList.map((item) => (
           <div className="preview-container__qualifications" key={uniqid()}>
-            {institution}
+            <h1> { item.institution } </h1>
           </div>
         ))}
       </div>
 
       <div className="experiences-section">
         <h2>Experience.</h2>
-        {organizationsList.map((organization) => (
+        {organizationsList.map((item) => (
           <div className="preview-container__experiences" key={uniqid()}>
-            {organization}
+            { item.organization }
           </div>
         ))}
       </div>
