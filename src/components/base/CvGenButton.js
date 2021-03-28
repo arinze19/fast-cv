@@ -1,9 +1,11 @@
 
-function cvGenButton() {
-    return (
-        <button className="main-form__button"> Generate CV</button>
-    )
-    
+
+function cvGenButton({ cv }) {
+  return (
+    <button className="main-form__button" onClick={convertToPdf(cv)}>
+      Generate CV
+    </button>
+  );
 }
 
-export default cvGenButton
+export default cvGenButton;

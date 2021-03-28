@@ -39,7 +39,9 @@ function Preview({ info, lists }) {
           <div className="preview-container__qualifications" key={uniqid()}>
             <h3> { item.institution } </h3>
             <i>{ item.certification }</i>
-            <p>{item.certStartDate} - {item.certEndDate}</p>
+            <p>
+              <small>{item.certStartDate} - {item.certEndDate}</small>
+            </p>
           </div>
         ))}
       </div>
@@ -50,7 +52,9 @@ function Preview({ info, lists }) {
           <div className="preview-container__qualifications" key={uniqid()}>
           <h3> { item.organization } </h3>
           <i>{ item.position }</i>
-          <p>{item.orgStartDate} - {item.orgEndDate}</p>
+          <p>
+            <small>{item.orgStartDate} - {item.orgEndDate}</small>
+          </p>
         </div>
         ))}
       </div>
