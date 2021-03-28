@@ -37,17 +37,21 @@ function Preview({ info, lists }) {
         <h2>Education and Qualifications.</h2>
         {institutionsList.map((item) => (
           <div className="preview-container__qualifications" key={uniqid()}>
-            <h1> { item.institution } </h1>
+            <h3> { item.institution } </h3>
+            <i>{ item.certification }</i>
+            <p>{item.certStartDate} - {item.certEndDate}</p>
           </div>
         ))}
       </div>
 
-      <div className="experiences-section">
+      <div className="preview-container__experiences-section">
         <h2>Experience.</h2>
         {organizationsList.map((item) => (
-          <div className="preview-container__experiences" key={uniqid()}>
-            { item.organization }
-          </div>
+          <div className="preview-container__qualifications" key={uniqid()}>
+          <h3> { item.organization } </h3>
+          <i>{ item.position }</i>
+          <p>{item.orgStartDate} - {item.orgEndDate}</p>
+        </div>
         ))}
       </div>
     </div>

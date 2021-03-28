@@ -6,6 +6,7 @@
 }
 
 .preview-container h2,
+.preview-container h3,
 .preview-container p {
   margin-bottom: 5px;
   margin-top: 5px;
@@ -18,7 +19,7 @@
 }
 
 .preview-container__header__right {
-  align-self: flex-end;
+  align-self: flex-start;
   text-align: end;
 }
 
@@ -31,6 +32,12 @@
 .preview-container__skills-container li {
   margin-top: 5px;
   margin-bottom: 5px;
+  list-style: none;
+}
+
+.preview-container__qualifications-section,
+.preview-container__experiences-section {
+  margin-bottom: 2rem;
 }
 
 @media (max-width: 768px) {
@@ -45,9 +52,5 @@
   .preview-container p {
     margin-bottom: 0;
     margin-top: 0;
-  }
-
-  .preview-container__skills-container li {
-    list-style-type: none;
   }
 }
