@@ -1,5 +1,6 @@
 import { useContext, useState } from 'react';
 import { MainContext } from '../../context/MainContextProvider';
+import uniqid from 'uniqid';
 import ShowCase from '../base/ShowCase';
 
 function Qualifications() {
@@ -24,7 +25,7 @@ function Qualifications() {
 
   const handleSubmit = (e) => {
     let newState = { ...cvInfo }
-    newState.qualifications.push(institution)
+    newState.qualifications.push({ ...institution, id: uniqid() })
 
     setCvInfo(newState);
     setInstitution(initialState);

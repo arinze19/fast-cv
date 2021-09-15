@@ -1,5 +1,6 @@
 import { useContext, useState } from 'react';
 import { MainContext } from '../../context/MainContextProvider';
+import uniqid from 'uniqid';
 import ShowCase from '../base/ShowCase';
 
 function Experience() {
@@ -24,7 +25,7 @@ function Experience() {
 
   const handleSubmit = (e) => {
     let newState = { ...cvInfo }
-    newState.experience.push(organization)
+    newState.experience.push({ ...organization, id: uniqid() })
     
     setCvInfo(newState);
     setOrganization(initialState);

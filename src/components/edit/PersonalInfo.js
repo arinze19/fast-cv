@@ -1,5 +1,6 @@
 import { useContext, useState } from 'react';
 import { MainContext } from '../../context/MainContextProvider';
+import uniqid from 'uniqid';
 import SkillsList from '../base/SkillsList';
 
 function PersonalInfo() {
@@ -24,7 +25,7 @@ function PersonalInfo() {
     let newState = { ...cvInfo };
     let newLocalState = { ...info };
 
-    newState.skills.push(info.skill);
+    newState.skills.push({ name: info.skill, id: uniqid() });
     newLocalState.skill = '';
 
     setCvInfo(newState);
