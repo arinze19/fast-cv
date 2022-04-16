@@ -44,7 +44,7 @@ function Preview() {
             <i>{item.certification}</i>
             <p>
               <small>
-                {item.certStartDate} - {item.certEndDate}
+                {item.startDate} - {item.endDate}
               </small>
             </p>
           </div>
@@ -59,7 +59,7 @@ function Preview() {
             <i>{item.position}</i>
             <p>
               <small>
-                {item.orgStartDate} - {item.orgEndDate}
+                {item.startDate} - {item.endDate}
               </small>
             </p>
           </div>
