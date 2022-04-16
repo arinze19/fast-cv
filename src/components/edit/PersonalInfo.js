@@ -21,6 +21,7 @@ function PersonalInfo() {
 
   const handleSubmit = (e) => {
     e.preventDefault()
+    if(!info.skill) return;
     
     let newState = { ...cvInfo };
     let newLocalState = { ...info };
@@ -33,7 +34,7 @@ function PersonalInfo() {
   };
 
   return (
-    <form>
+    <div>
       <div className='information'>
         <h2 className='heading'>Personal Information.</h2>
         <hr />
@@ -125,7 +126,7 @@ function PersonalInfo() {
           </div>
 
           <div className='form-control'>
-            <label htmlFor='website'>Skills:</label>
+            <label htmlFor='skill'>Skills:</label>
             <br />
             <input
               placeholder='Vue.JS'
@@ -147,7 +148,7 @@ function PersonalInfo() {
           <SkillsList />
         </div>
       </div>
-    </form>
+    </div>
   );
 }
 

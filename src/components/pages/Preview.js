@@ -7,8 +7,6 @@ function Preview() {
   const { cvInfo } = useContext(MainContext);
   const { skills, experience, qualifications } = cvInfo;
 
-  console.log(cvInfo)
-
   return (
     <div className='preview-container'>
       <div className='preview-container__header'>
@@ -33,7 +31,7 @@ function Preview() {
         <h2>Skills.</h2>
         <ul>
           {skills.map((skill) => (
-            <li key={uniqid()}>{skill}</li>
+            <li key={uniqid()}>{skill.name}</li>
           ))}
         </ul>
       </div>

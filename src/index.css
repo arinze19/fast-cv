@@ -11,6 +11,7 @@ button,
 input {
   font-family: 'Questrial', Arial, Helvetica, sans-serif;
   outline: none;
+  border-radius: 0;
 }
 
 header {
