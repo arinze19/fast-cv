@@ -5,6 +5,20 @@
   max-width: 1440px;
 }
 
+.ref-container {
+  padding: 2rem;
+}
+
+.preview-container__main {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+}
+
+.preview-container__main > div {
+  margin-right: 3rem;
+}
+
 .preview-container h2,
 .preview-container h3,
 .preview-container p {
@@ -38,6 +52,23 @@
 .preview-container__qualifications-section,
 .preview-container__experiences-section {
   margin-bottom: 2rem;
+}
+
+.preview-container__button {
+  background-color: #008561;
+  color: white;
+  border: none;
+  padding: 1rem;
+  width: 80%;
+  max-width: 767px;
+  display: flex;
+  justify-content: center;
+  cursor: pointer;
+}
+
+.preview-container__button:disabled {
+  cursor: not-allowed;
+  background-color: #ccc;
 }
 
 @media (max-width: 768px) {

@@ -12,19 +12,11 @@ function App() {
     setPreview((prevState) => (preview = !prevState));
   }
 
-  function currentPage() {
-    if (preview) {
-      return <Preview />;
-    }
-    
-    return <Home togglePreview={togglePreview} />;
-  }
-
   return (
     <MainContextProvider>
       <div>
         <Header togglePreview={togglePreview} preview={preview} />
-        {currentPage()}
+        {preview ? <Preview /> : <Home togglePreview={togglePreview} />}
       </div>
     </MainContextProvider>
   );
