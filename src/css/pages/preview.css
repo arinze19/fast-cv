@@ -1,5 +1,6 @@
 .preview-container {
-  width: 70%;
+  width: 50%;
+  max-width: 1440px;
   margin: 0 auto;
   color: #15372c;
   max-width: 1440px;
@@ -59,10 +60,12 @@
   color: white;
   border: none;
   padding: 1rem;
-  width: 80%;
+  width: 50%;
   max-width: 767px;
+  margin: 0 auto;
   display: flex;
   justify-content: center;
+  align-items: center;
   cursor: pointer;
 }
 
@@ -71,9 +74,9 @@
   background-color: #ccc;
 }
 
-@media (max-width: 768px) {
+@media (max-width: 767px) {
   .preview-container {
-    width: 90%;
+    width: 100%;
   }
 
   .preview-container h2 {
